@@ -65,8 +65,8 @@ TEST(PokeQuizTest, CheckAnswer) {
   op = '*';
   y = 4;
   answer = 12;
-  expected_success = true;  // question is valid
-  expected_correct = true;  // 3 * 4 == 12
+  expected_success = true;
+  expected_correct = true;
   EXPECT_CHECK_ANSWER(check_answer(x, op, y, answer, correct), correct,
                       expected_success, expected_correct);
   /*********************************************************/
@@ -77,8 +77,7 @@ TEST(PokeQuizTest, CheckAnswer) {
   op = 'x';
   y = 4;
   answer = 12;
-  expected_success = false;  // question is invalid
-  expected_correct = true;   // correct was true, not modified
+  expected_success = false;
   EXPECT_CHECK_ANSWER(check_answer(x, op, y, answer, correct), correct,
                       expected_success, expected_correct);
   /*********************************************************/
@@ -89,8 +88,8 @@ TEST(PokeQuizTest, CheckAnswer) {
   op = '-';
   y = 4;
   answer = -2;
-  expected_success = true;   // question is valid
-  expected_correct = false;  // 3 - 4 != -2
+  expected_success = true;
+  expected_correct = false;
   EXPECT_CHECK_ANSWER(check_answer(x, op, y, answer, correct), correct,
                       expected_success, expected_correct);
   /*********************************************************/
@@ -101,13 +100,12 @@ TEST(PokeQuizTest, CheckAnswer) {
   op = '%';
   y = 0;
   answer = 12;
-  expected_success = false;  // question is invalid
-  expected_success = false;  // correct was false, not modified
+  expected_success = false;
   EXPECT_CHECK_ANSWER(check_answer(x, op, y, answer, correct), correct,
                       expected_success, expected_correct);
   /*********************************************************/
 
-  // Optional but encouraged: add more tests.
+  // Optional but encouraged: add more tests.     
 }
 
 TEST(PokeQuizTest, CheckAnswers) {
@@ -125,7 +123,7 @@ TEST(PokeQuizTest, CheckAnswers) {
   ops = {'+', '-', '*', '/', '%'};
   ys = {2, 9, 5, 5, 3};
   answers = {3, -5, 9, 1, 0};
-  expected_success = true;  // all inputs are valid
+  expected_success = true;
   expected_num_correct = 4;
   EXPECT_CHECK_ANSWERS(check_answers(xs, ops, ys, answers, num_correct),
                        num_correct, expected_success, expected_num_correct);
@@ -137,8 +135,7 @@ TEST(PokeQuizTest, CheckAnswers) {
   ops = {'+', '-', '*', '/', '%'};
   ys = {2, 9, 5, 5, 3};
   answers = {3, -5, 9, 1, 0};
-  expected_success = false;  // not all inputs are valid
-  expected_num_correct = 4;  // num_correct was 4, not modified
+  expected_success = false;
   EXPECT_CHECK_ANSWERS(check_answers(xs, ops, ys, answers, num_correct),
                        num_correct, expected_success, expected_num_correct);
   /*********************************************************/
@@ -149,8 +146,7 @@ TEST(PokeQuizTest, CheckAnswers) {
   ops = {'+', '-', '*', '/', '%'};
   ys = {2, 9, 5, 0, 3};
   answers = {3, -5, 9, 1, 0};
-  expected_success = false;  // not all inputs are valid
-  expected_num_correct = 4;  // num_correct was 4, not modified
+  expected_success = false;
   EXPECT_CHECK_ANSWERS(check_answers(xs, ops, ys, answers, num_correct),
                        num_correct, expected_success, expected_num_correct);
   /*********************************************************/
@@ -161,13 +157,13 @@ TEST(PokeQuizTest, CheckAnswers) {
   ops = {'+', '-', '*', '/', '%'};
   ys = {2, 9, 5, 5, 3};
   answers = {100, 100, 100, 100, 100};
-  expected_success = true;  // all inputs are valid
+  expected_success = true;
   expected_num_correct = 0;
   EXPECT_CHECK_ANSWERS(check_answers(xs, ops, ys, answers, num_correct),
                        num_correct, expected_success, expected_num_correct);
   /*********************************************************/
 
-  // Optional but encouraged: add more tests.
+  // Optional but encouraged: add more tests. 
 }
 
 TEST(PokeQuizTest, FrequentNumbers) {
@@ -202,5 +198,5 @@ TEST(PokeQuizTest, FrequentNumbers) {
   EXPECT_THAT(frequent_numbers(number_lists), ContainerEq(expected_output));
   /*********************************************************/
 
-  // Optional but encouraged: add more tests.
+  // Optional but encouraged: add more tests. 
 }
